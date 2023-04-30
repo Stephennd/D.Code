@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CleaningService.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class AdminStatesController : Controller
     {
         public readonly CleaningServiceContext _context;
@@ -19,8 +20,8 @@ namespace CleaningService.Controllers
             _context = context;
             _context.Database.EnsureCreated();
         }
-        // GET: api/values  [HttpGet]
-        [HttpGet]
+        
+        [HttpGet("All")]
         public ActionResult GetAdminStates()
         {
             if (_context.AdminStates is not null)

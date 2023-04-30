@@ -20,8 +20,7 @@ namespace CleaningService.Controllers
             _context.Database.EnsureCreated();
         }
 
-        // GET: api/values
-        [HttpGet]
+        [HttpGet("All")]
         public ActionResult GetAreas()
         {
             if (_context.ServiceAreas is not null)

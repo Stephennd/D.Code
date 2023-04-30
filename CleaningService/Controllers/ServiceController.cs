@@ -18,8 +18,8 @@ namespace CleaningService.Controllers
 			_context.Database.EnsureCreated();
 		}
 
-		[HttpGet]
-		public ActionResult GetServices()
+        [HttpGet("All")]
+        public ActionResult GetServices()
 		{
 			// var services = string.Join(",", _context.Services.Select(x => x.name).ToList<string>());
 			var services = _context.Services.ToList<Service>();
@@ -41,7 +41,7 @@ namespace CleaningService.Controllers
 				new { id = service.id }, service);
 		}
 		
-		[HttpPost]
+		[HttpPost("Add")]
 		public async Task<ActionResult> AddService([FromBody]Service service)
 		{
 			_context.Services.Add(service);
@@ -54,8 +54,8 @@ namespace CleaningService.Controllers
 
         }
 
-		[HttpDelete("{id}")]
-		public async Task<ActionResult> DeleteService(int id)
+		[HttpDelete("DeleteByID")]
+		public async Task<ActionResult> DeleteService([FromBody]int id)
 		{
 			if (!_context.Services.Any(x => x.id == id))
 			{

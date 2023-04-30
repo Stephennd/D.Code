@@ -20,8 +20,8 @@ namespace CleaningService.Controllers
             _context.Database.EnsureCreated();
         }
 
-        // GET: api/values
-        [HttpGet]
+   
+        [HttpGet("All")]
         public ActionResult GetRequestedStatuses()
         {
             if(_context.RequestStatuses is not null)

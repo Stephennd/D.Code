@@ -30,7 +30,7 @@ namespace CleaningService.Controllers
             return Ok(_context.SuperUsers.First(x => x.id == 1));
         }
 
-        [HttpPut("UserName")]
+        [HttpPut("UpdateUserName")]
         public async Task<ActionResult> UpdateUserName([FromBody]string val)
         {
             if (_context.SuperUsers.Find(1) is null)
@@ -51,7 +51,7 @@ namespace CleaningService.Controllers
             }
         }
 
-        [HttpPut("Password")]
+        [HttpPut("UpdatePassword")]
         public async Task<ActionResult> UpdatePassword([FromBody]string val)
         {
             if(_context.SuperUsers.Find(1) is null)
